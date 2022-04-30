@@ -2,7 +2,6 @@
 
 function createGrid(gridSize=16){
 
-
     const container = document.querySelector('.container');
     
     for(let i = 0; i<gridSize;i++){
@@ -24,10 +23,9 @@ function createGridColumn(Rows,i){
         createDiv.classList.add("row", "row"+i+j);
         console.log(createDiv);
         gridColumn.appendChild(createDiv);
-
     }
 }
 
 
-createGrid(32);
+createGrid();
 
