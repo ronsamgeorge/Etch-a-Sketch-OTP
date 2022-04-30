@@ -11,10 +11,21 @@ function createGrid(gridSize=16){
         console.log(createDiv);
         container.appendChild(createDiv);
 
-        //createGridRow(gridSize,i);
+        createGridColumn(gridSize,i);
     }
 
+    function createGridColumn(Rows,i){
+
+        const gridColumn = document.querySelector(".grid"+i);
+        
+        for(let j = 0; j<Rows; j++){
+            const createDiv = document.createElement('div');
+            createDiv.classList.add("draw-border", "row"+i);
+            console.log(createDiv);
+            gridColumn.appendChild(createDiv);
     
+        }
+    }
 
 }
 
