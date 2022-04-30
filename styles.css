@@ -1,11 +1,4 @@
-.container{
-    border : 2px solid black;
-    width: 600px;
-    height: 600px;
-    display: flex;
 
-
-}
 
 body{
     display: flex;
@@ -14,6 +7,13 @@ body{
     gap : 16px;
     margin : 0px;
     
+}
+
+.container{
+    border : 2px solid black;
+    width: 600px;
+    height: 600px;
+    display: flex;
 }
 
 .header-name{
@@ -26,11 +26,25 @@ body{
     margin : 0px;
 }
 
+
+.grid {
+    flex : 1;
+
+    display : flex;
+    flex-direction: column;
+}
+
+.row{
+    flex : 1;
+    border : 2px solid black;
+}
+
+/*
 .draw-border {
     border : 2px solid black;
     flex : 1;
 
     display: flex;
     flex-direction: column;
-}
+}*/
 
