@@ -39,6 +39,10 @@ body{
     border : 1px solid black;
 }
 
+.row-hover{
+    background-color: grey;
+}
+
 /*
 .draw-border {
     border : 2px solid black;
