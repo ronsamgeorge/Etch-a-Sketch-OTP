@@ -20,20 +20,23 @@ function createGridColumn(Rows,i){
     
     for(let j = 0; j<Rows; j++){
         const createDiv = document.createElement('div');
-        createDiv.classList.add("row", "r"+i+"c"+j);
+        createDiv.classList.add("row");
+        createDiv.id  = "r"+i+"c"+j;
         //console.log(createDiv);
         gridColumn.appendChild(createDiv);
     }
 }
 
+
 function onHover(e){
-    console.log(this.classList[1]);
-    const targetDivClass = this.classList[1];
-
-    const targetDiv = document.querySelector('.'+targetDivClass);
-    console.log(targetDiv);
-
+    console.log(this.id);
+    const targetDivId = this.id;
+    const targetDiv = document.querySelector('#'+targetDivId);
     targetDiv.classList.add('row-hover');
+}
+
+function onReset(e){
+    
 }
 
 createGrid(32);
