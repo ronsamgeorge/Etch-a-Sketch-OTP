@@ -46,7 +46,8 @@ function onReset(e){
 
     const allCells = document.querySelectorAll(".row");
 
-   console.log(allCells);
+    console.log(allCells[1]);
+    allCells.classList.remove("row-hover");
     
 }
 
@@ -70,6 +71,20 @@ function onChangeGrid(e){
     return;
 }
 
+
+
+//EraserFunction
+function onEraseHover(){
+    const targetDivId = this.id;
+    const targetDiv = document.querySelector('#'+targetDivId);
+    targetDiv.classList.remove('row-hover');
+}
+
+function onErase(e){
+    const hoveredCells = document.querySelectorAll(".row");
+    hoveredCells.forEach(cell => cell.addEventListener('mouseover',onEraseHover));
+}
+
 createGrid();
 
 
@@ -79,6 +94,9 @@ resetButton.addEventListener('click',onReset);
 
 const gridChange = document.querySelector(".change-grid-btn");
 gridChange.addEventListener('click', onChangeGrid);
+
+const randomColor = document.querySelector(".eraser-btn");
+randomColor.addEventListener('click', onErase);
 
 /* Initially the hoverevent was handled here but since has been tranferred to the
 createGrid function because each time the grid is changed, we need to update the NodeList as well
