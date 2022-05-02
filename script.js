@@ -45,17 +45,14 @@ function onHover(e){
 function onReset(e){
 
     const allCells = document.querySelectorAll(".row");
-
-    console.log(allCells[1]);
-    allCells.classList.remove("row-hover");
-    
+    allCells.forEach(cell => cell.classList.remove("row-hover"));
 }
 
 
 //Function executes when Change Grid Dimension is clicked
 function onChangeGrid(e){
     const newGridSize = prompt("Enter new Grid Size(<=100)");
-    
+
     if((newGridSize > 100) || (newGridSize == null) || (newGridSize.length === 0)){
         alert("Grid Size should be between 0 and 100.");
         return;
@@ -77,6 +74,7 @@ function onEraseHover(){
     const targetDivId = this.id;
     const targetDiv = document.querySelector('#'+targetDivId);
     targetDiv.classList.remove('row-hover');
+
 }
 
 function onErase(e){
