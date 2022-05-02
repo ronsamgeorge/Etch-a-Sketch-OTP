@@ -33,11 +33,18 @@ function createGridColumn(Rows,i){
 
 
 //Adds the row-hover class, which adds the color class to the cell
-function onHover(e){
-    //console.log(this.id);
+function onHover(e,from){
+    
+    console.log("draw");
     const targetDivId = this.id;
     const targetDiv = document.querySelector('#'+targetDivId);
+    //console.log(targetDiv);
+
+    if (mode === "erase"){
+        targetDiv.classList.remove('row-hover');
+    }else {
     targetDiv.classList.add('row-hover');
+    }
 }
 
 
@@ -58,6 +65,7 @@ function onChangeGrid(e){
         return;
     }
 
+    mode = "draw";
     const gridContainer = document.querySelector('.container');
 
     while(gridContainer.hasChildNodes()){
@@ -69,23 +77,27 @@ function onChangeGrid(e){
 
 
 
-//EraserFunction
-function onEraseHover(){
-    const targetDivId = this.id;
-    const targetDiv = document.querySelector('#'+targetDivId);
-    targetDiv.classList.remove('row-hover');
-
-}
 
 function onErase(e){
+    mode = "erase";
     const hoveredCells = document.querySelectorAll(".row");
-    hoveredCells.forEach(cell => cell.addEventListener('mouseover',onEraseHover));
+    hoveredCells.forEach(cell => cell.addEventListener('mouseover',onHover));
 }
 
+
+
+function onDraw(e){
+   mode ='draw';
+   const hoveredCells = document.querySelectorAll(".row");
+    hoveredCells.forEach(cell => cell.addEventListener('mouseover',onHover));
+}
+
+
+
+let mode = 'draw';
 createGrid();
 
-
-
+//functionality for buttons
 const resetButton = document.querySelector(".reset-btn");
 resetButton.addEventListener('click',onReset);
 
@@ -95,11 +107,9 @@ gridChange.addEventListener('click', onChangeGrid);
 const randomColor = document.querySelector(".eraser-btn");
 randomColor.addEventListener('click', onErase);
 
-/* Initially the hoverevent was handled here but since has been tranferred to the
-createGrid function because each time the grid is changed, we need to update the NodeList as well
+const drawButton = document.querySelector('.draw-btn');
+drawButton.addEventListener('click', onDraw);
 
-const hoveredCells = document.querySelectorAll(".row");
-hoveredCells.forEach(cell => cell.addEventListener('click',onHover));*/
 
 
 
