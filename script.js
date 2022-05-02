@@ -55,10 +55,9 @@ function onReset(e){
 //Function executes when Change Grid Dimension is clicked
 function onChangeGrid(e){
     const newGridSize = prompt("Enter new Grid Size(<=100)");
-    console.log(newGridSize);
-
-    if(newGridSize > 100){
-        alert("Grid Size can't be more than 100.");
+    
+    if((newGridSize > 100) || (newGridSize == null) || (newGridSize.length === 0)){
+        alert("Grid Size should be between 0 and 100.");
         return;
     }
 

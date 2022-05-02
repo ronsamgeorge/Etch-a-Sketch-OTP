@@ -10,7 +10,7 @@ body{
 }
 
 .container{
-    /*border : 2px solid black;*/
+   /* border : 2px solid black;*/  
     width: 600px;
     height: 600px;
     display: flex;
@@ -36,11 +36,11 @@ body{
 
 .row{
     flex : 1;
-    border : 1px solid black;
+    border : 1px solid grey;
 }
 
 .row-hover{
-    background-color: grey;
+    background-color: black;
 }
 
 /*
