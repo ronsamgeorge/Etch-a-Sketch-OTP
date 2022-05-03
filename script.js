@@ -39,11 +39,14 @@ function onHover(e,from){
     const targetDivId = this.id;
     const targetDiv = document.querySelector('#'+targetDivId);
     //console.log(targetDiv);
+    const color = 'black';
 
     if (mode === "erase"){
-        targetDiv.classList.remove('row-hover');
+        targetDiv.style.backgroundColor = "white";
+        //targetDiv.classList.remove('row-hover');
     }else {
-    targetDiv.classList.add('row-hover');
+        targetDiv.style.backgroundColor = color;
+    //targetDiv.classList.add('row-hover');
     }
 }
 
@@ -52,7 +55,9 @@ function onHover(e,from){
 function onReset(e){
 
     const allCells = document.querySelectorAll(".row");
-    allCells.forEach(cell => cell.classList.remove("row-hover"));
+    allCells.forEach(cell => cell.style.backgroundColor = 'white');
+    
+    //allCells.forEach(cell => cell.classList.remove("row-hover"));
 }
 
 
@@ -89,7 +94,7 @@ function onErase(e){
 function onDraw(e){
    mode ='draw';
    const hoveredCells = document.querySelectorAll(".row");
-    hoveredCells.forEach(cell => cell.addEventListener('mouseover',onHover));
+   hoveredCells.forEach(cell => cell.addEventListener('mouseover',onHover));
 }
 
 
